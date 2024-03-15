@@ -6,7 +6,10 @@ class Program
     static void Main()
     {
         bool endApp = false;
-        // Display title as the C# console calculator app.
+        
+        int calculationCount = 0;
+        // Calculation Count
+
         Console.WriteLine("Console Calculator in C#\r");
         Console.WriteLine("------------------------\n");
 
@@ -14,12 +17,18 @@ class Program
 
         while (!endApp)
         {
-            // Declare variables and set to empty.
+            
             string numInput1;
             string numInput2;
             double result;
 
-            // Ask the user to type the first number.
+            //CW
+            // Calculation count:
+            //CW
+            
+            Console.WriteLine($"Calculation used: {calculationCount}");
+            Console.WriteLine();
+
             Console.Write("Type a number, and then press Enter: ");
             numInput1 = Console.ReadLine() ?? " ";
 
@@ -30,7 +39,6 @@ class Program
                 numInput1 = Console.ReadLine() ?? " ";
             }
 
-            // Ask the user to type the second number.
             Console.Write("Type another number, and then press Enter: ");
             numInput2 = Console.ReadLine() ?? " ";
 
@@ -41,7 +49,6 @@ class Program
                 numInput2 = Console.ReadLine() ?? " ";
             }
 
-            // Ask the user to choose an operator.
             Console.WriteLine("Choose an operator from the following list:");
             Console.WriteLine("\ta - Add");
             Console.WriteLine("\ts - Subtract");
@@ -50,6 +57,9 @@ class Program
             Console.Write("Your option? ");
 
             string op = Console.ReadLine() ?? " ";
+
+            // Add Calculation Count
+            calculationCount++;
 
             try
             {
@@ -67,13 +77,12 @@ class Program
 
             Console.WriteLine("------------------------\n");
 
-            // Wait for the user to respond before closing.
             Console.Write("Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
             if (Console.ReadLine() == "n") endApp = true;
 
-            Console.WriteLine("\n"); // Friendly linespacing.
+            Console.WriteLine("\n"); 
         }
-        //Add call to close the JSON writer before return
+
         calculator.Finish();
         return;
     }
